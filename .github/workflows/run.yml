@@ -26,6 +26,6 @@ jobs:
     - name: sign
       env:
        cookie: ${{ secrets.cookie }}
-       pwd: ${{ secrets.pwd }}
+       api_key: ${{ secrets.api_key }}
       run: |
        cd src && python3 service.py

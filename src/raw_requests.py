@@ -7,7 +7,6 @@ import xml.dom.minidom as xml
 import lxml.html as html
 import questions
 from sys import exit
-import os
 import http.cookies
 
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36 Edg/103.0.1264.77"
@@ -69,9 +68,6 @@ def getcaptcha(sitekey: str = "",url: str = "",clientKey: str = ""):
 
 def save_error(response: requests.Response, error_desc: str = ""):
     print(f"{error_desc} 未知错误，查看tmp.html，了解详情")
-    tmpfilename = "tmp.html"
-    if os.name == "posix":
-        tmpfilename = "/tmp/" + tmpfilename
     # content 是字节
     # text 是字符串
     # f = open("tmp.html", "w", encoding="utf-8")
