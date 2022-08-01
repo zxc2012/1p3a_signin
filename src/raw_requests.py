@@ -81,6 +81,7 @@ def save_error(response: requests.Response, error_desc: str = ""):
 def check_status_code(response: requests.Response, error_desc: str = ""):
     if response.status_code != 200:
         print(f"{error_desc} error: status code is {response.status_code}")
+        print(response.content)
         exit(-1)
 
 
