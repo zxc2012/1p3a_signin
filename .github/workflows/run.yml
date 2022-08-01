@@ -1,0 +1,31 @@
+name: Github action Demo
+
+on:
+  push:
+  watch:
+    types: [ started ]
+  schedule:
+    - cron: 23 4  * * *
+
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v3
+    - name: 'Set python'
+      uses: actions/setup-python@v1
+      with:
+          python-version: '3.6'
+    - name: Install Python dependencies
+      uses: py-actions/py-dependency-install@v3
+      with:
+        path: "requirements.txt"
+
+    - name: sign
+      env:
+       cookie: ${{ secrets.cookie }}
+       pwd: ${{ secrets.pwd }}
+      run: |
+       cd src && python3 service.py
