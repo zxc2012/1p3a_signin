@@ -89,7 +89,6 @@ def login_cookie(cookie: str) -> bool:
     global session
     session = requests.session()
     cookie = json.loads(base64.b64decode(cookie))
-    print(cookie)
     session.cookies.update(http.cookies.SimpleCookie(cookie))
     return True
 
