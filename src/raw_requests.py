@@ -1,6 +1,6 @@
 import random
 import time
-
+import base64
 import requests
 import re
 import xml.dom.minidom as xml
@@ -86,6 +86,8 @@ def check_status_code(response: requests.Response, error_desc: str = ""):
 def login_cookie(cookie: str) -> bool:
     global session
     session = requests.session()
+    cookie = base64.b64decode(cookie)
+    print(cookie)
     session.cookies.update(http.cookies.SimpleCookie(cookie))
     return True
 

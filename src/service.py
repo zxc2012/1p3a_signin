@@ -28,9 +28,12 @@ def daily_question(solver) -> bool:
 def main():
     cookie = os.getenv("cookie")
     api_key = os.getenv("api_key")
-    login_cookie(cookie)
-    daily_checkin(api_key)
-    daily_question(api_key)
+    if cookie is not None or api_key is not None :
+        login_cookie(cookie)
+        daily_checkin(api_key)
+        daily_question(api_key)
+    else:
+        print("Secrets 未配置!")
 
 
 if __name__ == "__main__":

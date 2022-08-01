@@ -8,7 +8,7 @@ on:
     - cron: 23 4  * * *
 
 jobs:
-  healthcheck:
+  1p3a_sign:
     runs-on: ubuntu-latest
 
     steps:
